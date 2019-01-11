@@ -1,33 +1,28 @@
 package com.techlabs.basics;
 
+import com.sun.org.apache.xerces.internal.util.URI;
+
 public class StringSubString {
-	public static void main(String[] args) throws Exception{
-		String Url =  "https://www.swabhavtechlabs.com?developer=ajay&client=aurionpro";
-		char[] Url_array = Url.toCharArray();
-		for(int i=0;i<=Url_array.length;i++) {
-			if(Url_array[i]=='w') {
-				if(Url_array[i+1]=='w') {
-					if(Url_array[i+2]=='w') {
-						int start = i+3;
-						System.out.println(start);
-						
-					}
-				}
-			}
-			if(Url_array[i]=='.') {
-				if(Url_array[i+1]=='c'){
-					if(Url_array[i+2]=='o') {
-						int end = i;
-						System.out.println(end);
-					}
-				}
-			}
-		}
-		String domain = Url.substring(start , end);
-		System.out.println(domain);
+	public static void main(String[] url) throws Exception{
+		//String u = new String("https://www.swabhavtechlabs.com?developer=ajay&client=aurionpro");
+		int start = url[0].indexOf('.');
+		int end = url[0].indexOf('.',12);
+		printSubstring (url,start,end);
+		start = url[0].indexOf('?');
+		end = url[0].indexOf('&');
+		printSubstring (url,start,end);
+		printSubstring (url,end,url[0].length());
 		
+		
+		
+		}
+		
+
+	private static void printSubstring (String[] Url ,int start, int end) {
+		// TODO Auto-generated method stub
+		//String domain = Url[0].substring(start+1,end);
+		System.out.println( Url[0].substring(start+1,end));
 		
 		
 	}
-
-}
+	}
