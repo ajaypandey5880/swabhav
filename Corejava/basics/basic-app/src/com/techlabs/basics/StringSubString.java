@@ -4,21 +4,28 @@ public class StringSubString {
 	public static void main(String[] args) throws Exception{
 		String Url =  "https://www.swabhavtechlabs.com?developer=ajay&client=aurionpro";
 		char[] Url_array = Url.toCharArray();
-		//System.out.println(Url_array[0]);
-		char[] pointer = {'w','w','w'} ;
-		for(char c : Url_array) {
-		
-			
-			if(c==pointer[0]) {
-				if(c+1==pointer[1]) {
-					if(c+2==pointer[2]) {
-						int start = c+3;
+		for(int i=0;i<=Url_array.length;i++) {
+			if(Url_array[i]=='w') {
+				if(Url_array[i+1]=='w') {
+					if(Url_array[i+2]=='w') {
+						int start = i+3;
 						System.out.println(start);
+						
 					}
 				}
 			}
-			
+			if(Url_array[i]=='.') {
+				if(Url_array[i+1]=='c'){
+					if(Url_array[i+2]=='o') {
+						int end = i;
+						System.out.println(end);
+					}
+				}
+			}
 		}
+		String domain = Url.substring(start , end);
+		System.out.println(domain);
+		
 		
 		
 	}
