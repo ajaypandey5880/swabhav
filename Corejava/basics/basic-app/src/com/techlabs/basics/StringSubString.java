@@ -20,7 +20,6 @@ public class StringSubString {
 
 	private static void printSubstring (String[] Url ,int start, int end) {
 		// TODO Auto-generated method stub
-		//String domain = Url[0].substring(start+1,end);
 		System.out.println( Url[0].substring(start+1,end));
 		
 		
