@@ -1,6 +1,6 @@
 package com.techlabs.basics;
 
-import com.sun.org.apache.xerces.internal.util.URI;
+
 
 public class StringSubString {
 	public static void main(String[] url) throws Exception{
