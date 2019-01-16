@@ -11,5 +11,6 @@ public class TestRectangle {
 		System.out.println("length is " + rect.getlength());
 		System.out.println("width is " + rect.getwidth());
 		System.out.println(+rect.calculateArea());
+		System.out.println(new Rectangle().calculateArea());
 	}
 }

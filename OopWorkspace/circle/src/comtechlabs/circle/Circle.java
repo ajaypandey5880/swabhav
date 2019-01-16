@@ -8,7 +8,7 @@ public class Circle {
 		return radius;
 	}
 
-	public void setradius(int newRadius) {
+	public void setradius(float newRadius) {
 		if (newRadius < 0) {
 			newRadius = 1;
 		}
