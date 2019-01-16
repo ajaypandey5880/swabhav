@@ -12,7 +12,9 @@ public class Rectangle {
 
 	}
 	public Rectangle(int newHeight,int newWidth, String newcolour){
-		if (newcolour.equals("green") || newcolour.equals("blue") || newcolour.equals("red")) {
+		height = newHeight;
+		width = newWidth;
+		if (newcolour.equalsIgnoreCase("green") || newcolour.equalsIgnoreCase("blue") || newcolour.equalsIgnoreCase("red")) {
 			colour = newcolour;
 		}
 		
