@@ -1,24 +1,18 @@
 package rectangleenum;
 
-public class RectangleEnum {
+public class Rectangle {
 	private int width;
 	private int height;
-	private Colour color;
-	
-	enum Colour{
-		red,blue,green;
-	}
-
-	
-	public RectangleEnum(int newHeight,int newWidth){
+	private ColorEnum color;
+	public Rectangle(int newHeight,int newWidth){
 		height = newHeight;
 		width = newWidth;
 
 	}
-	public RectangleEnum (int newHeight,int newWidth, Colour newcolour){
+	public Rectangle (int newHeight,int newWidth, ColorEnum newcolor){
 		height = newHeight;
 		width = newWidth;
-		color = newcolour;
+		color = newcolor;
 	}
 		
 	
@@ -29,7 +23,7 @@ public class RectangleEnum {
 	public int getHeight() {
 		return height;
 	}
-	public Colour getColour() {
+	public ColorEnum getColour() {
 		return color ;
 	}
 	public int calculateArea() {
