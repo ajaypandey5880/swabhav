@@ -12,12 +12,14 @@ public class TestAdditionSubtraction {
 		AdditionSubtraction addSub2 = (AdditionSubtraction) addSub.clone();
 		AdditionSubtraction addSub3 = (AdditionSubtraction) Class.forName("createObject.AdditionSubtraction").
 				newInstance();
+		Class<AdditionSubtraction> addSub4 = AdditionSubtraction.class;
 		addSub1.setNos(5, 4);
 		addSub2.setNos(9, 7);
 		addSub3.setNos(15,3);
 		printAddSub(addSub1);
 		printAddSub(addSub2);
 		printAddSub(addSub3);
+		//printAddSub(addSub4);
 		
 	}
 	public static void printAddSub(AdditionSubtraction addsub) {
