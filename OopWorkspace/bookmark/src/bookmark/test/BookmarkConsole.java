@@ -11,35 +11,39 @@ public class BookmarkConsole {
 	public static void main(String[] args) throws IOException {
 		Bookmark b = new Bookmark();
 		BookmarkService b1 = new BookmarkService();
-
-		Scanner sc = new Scanner(System.in);
+		int choice;
+		final int ADD =0;
+		final int DISPLAY = 1;
+		Scanner scanner = new Scanner(System.in);
 		// System.out.println("select the operation you want to perform add or
 		// display");
-		System.out.println("Enter 0 to add BookMarks\n 1 to display the Bookmarks");
-		int choice = sc.nextInt();
-		// String option = sc.nextLine();
-		// b.setOption(InputOption.valueOf(option));
-		if (choice != 0 && choice != 1) {
-			System.out.println("Choose valid Option");
-
-		}
-
-		// if (b.getOption().equals(InputOption.ADD)){
-		if (choice == 0) {
+		do {
+		System.out.println("Enter 0 to add BookMarks\n 1 to display the Bookmarks\n2 to exit");
+		choice = scanner.nextInt();
+		switch (choice){
+		case ADD:
 			System.out.println("enter the name");
-			String name = sc.nextLine();
+			String name = scanner.nextLine();
 			System.out.println("enter the URL");
-			String url = sc.nextLine();
+			String url = scanner.nextLine();
 
 			b.setName(name);
 			b.setUrl(url);
 
 			b1.add(b.getUrl(), b.getName());
-		}
-		// if(b.getOption().equals(InputOption.DISPLAY)) {
-		if (choice == 1) {
+			break;
+		case DISPLAY:
 			b1.display();
+			break;
+		default:
+			System.out.println("enter valid options");
 		}
+		}while( choice != 3);
+		// String option = sc.nextLine();
+		// b.setOption(InputOption.valueOf(option));
+		// if (b.getOption().equals(InputOption.ADD)){
+		// if(b.getOption().equals(InputOption.DISPLAY)) {
+		
 	}
 
 }

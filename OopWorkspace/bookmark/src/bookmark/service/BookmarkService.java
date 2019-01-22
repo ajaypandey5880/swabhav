@@ -21,7 +21,7 @@ public class BookmarkService {
 	}
 
 	public void display() throws IOException {
-			File file = new File("D:\\swabhav-repos\\swabhav\\OopWorkspace\\bookmark\\" + "Bookmarks.html");
+			File file = new File("data\\Bookmarks.html");
 		if (file.exists())
 			desktop.open(file);
 		// Files.createLink(file,"D:\\swabhav-repos\\swabhav\\OopWorkspace\\bookmark");
