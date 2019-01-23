@@ -19,15 +19,15 @@ public class HtmlBuilder {
 	}
 
 	public static void printDetials(EngineeringCollege college) throws IOException {
-		FileWriter file = new FileWriter("D:\\swabhav-repos\\swabhav\\OopWorkspace\\college\\src\\data\\college.html", true);
-		file.append("<div><h1>College name :" + college.getcollegeName() + "</h1><br><p>\tNo of Student :"
-				+ college.getStudent().size() + "\tNo of Professor :" + college.getProfessor().size() + "</p>");
+		FileWriter file = new FileWriter("D:\\swabhav-repos\\swabhav\\OopWorkspace\\college\\src\\data\\college.html", false);
+		file.append("<div><h1>College name :" + college.getcollegeName() + "</h1><br><p>No of Student :"
+				+ college.getStudent().size() + "<br>\tNo of Professor :" + college.getProfessor().size() + "</p>");
 		file.append("<h2>Student Details</h2>");
 		for (Student student : college.getStudent()) {
 			file.append("<p>Id :" + student.getId() + "\tAddress :" + student.getAddress() + "\tDate of Birth :"
 					+ student.getDateOfBirth() + "\tBranch :" + student.getBranch() + "</p>");
 		}
-		file.append("<h3<Professor</h3>");
+		file.append("<h3>Professor</h3>");
 		for (Professor professor : college.getProfessor()) {
 			file.append("<p>Id :" + professor.getId() + "\tAddress :" + professor.getAddress()
 					+ "\tDate of Birth :" + professor.getDateOfBirth() + "\tSalary :" + professor.getSalary() + "</p>");
