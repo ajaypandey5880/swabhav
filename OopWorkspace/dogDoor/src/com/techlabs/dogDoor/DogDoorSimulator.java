@@ -4,9 +4,11 @@ public class DogDoorSimulator {
 
 	public static void main(String[] args) {
 		DogDoor dogdoor = new DogDoor();
+		BarkReconizer reconizer = new BarkReconizer(dogdoor);
 		DoorRemote remote = new DoorRemote(dogdoor);
-		System.out.println();
-		System.out.println("fido all done..");
+		System.out.println("Fido starts Braking");
+		reconizer.recognize("Woof");
+		System.out.println("Fido's All Done");
 
 		try {
 			Thread.currentThread().sleep(10000);
@@ -15,8 +17,7 @@ public class DogDoorSimulator {
 
 		System.out.println("but he is stuck outside");
 		System.out.println("Fido start barking");
-		System.out.println("gina grabs the remote control");
-		remote.pressButton();
+		reconizer.recognize("woof");
 		System.out.println("fido back inside");
 	}
 }
