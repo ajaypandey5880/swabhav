@@ -11,24 +11,24 @@ import com.techlabs.CubeOfEven.CubeOfEven;
 
 public class TestCubeOfEven {
 	@Test
-	void test1() {
+	void passingEvenNo() {
 		CubeOfEven cube = new CubeOfEven();
-		int result = cube.even(2);
+		int result = cube.evenCube(2);
 		assertEquals(8, result);
 	}
 
 	@Test
-	void test2() {
+	void passingNeagtiveEvenNo() {
 		CubeOfEven cube = new CubeOfEven();
-		int result = cube.even(-2);
+		int result = cube.evenCube(-2);
 		assertEquals(-8, result);
 	}
 
 	@Test
-	void test3() {
+	void passingOddNo() {
 		CubeOfEven cube = new CubeOfEven();
 		try {
-		int result = cube.even(3);
+		int result = cube.evenCube(3);
 		fail("this should throw excepion");
 		}catch(RuntimeException e) {
 			assertEquals(e.getMessage(),"Pass A Even No");
@@ -36,19 +36,26 @@ public class TestCubeOfEven {
 
 	}
 	@Test
-	void test4() {
+	void PassingNegativeOddNo() {
 		CubeOfEven cube = new CubeOfEven();
 		try {
-			int result = cube.even(-1);
+			int result = cube.evenCube(-1);
 			fail("this should throw excepion");
 			}catch(RuntimeException e) {
 				assertEquals(e.getMessage(),"Pass A Even No");
 			}
 	}
 	@Test
-	void test5() {
+	void passingLongint() {
 		CubeOfEven cube = new CubeOfEven();
-		int result = cube.even(10000);
+		int result = cube.evenCube(10000);
 		//assertEquals(1,000,000,000,000 , result);
+	}
+	
+	@Test
+	void passingZero() {
+		CubeOfEven cube = new CubeOfEven();
+		int result = cube.evenCube(0);
+		assertEquals(0, result);
 	}
 }

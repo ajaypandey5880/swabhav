@@ -10,7 +10,7 @@ public class TestCollege {
 
 	public static void main(String[] args) {
 		EngineeringCollege college = new EngineeringCollege();
-		college.addStudent(new Student(1, "Mira Road", "26/11/1996", BranchOption.COMPUTER));
+		college.addStudent(new Student(1, "Mira Road", "1995,02,11", BranchOption.COMPUTER));
 		college.addStudent(new Student(2, "Vasai", "22/05/1992", BranchOption.CIVIL));
 		college.addprofessor(new Professor(1, "Virar", "22/08/1885"));
 		printDetials(college);

@@ -1,9 +1,11 @@
 package com.techlab.college;
 
+import java.sql.Date;
+
 public class Person {
 	protected int id;
 	protected String address;
-	protected String dateOfBirth;
+	protected String dateOfBirth ;
 
 	public Person(int id, String address, String dateofBirth) {
 		this.id = id;

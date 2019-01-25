@@ -1,5 +1,7 @@
 package com.techlab.college;
 
+import java.util.Date;
+
 import com.techlab.college.BranceOption.BranchOption;
 
 public class Student extends Person {

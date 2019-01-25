@@ -1,5 +1,7 @@
 package com.techlab.college;
 
+import java.util.Date;
+
 public class Professor extends Person implements SalariedEmployee {
 	public Professor(int id, String address, String dateofBirth) {
 		super(id, address, dateofBirth);

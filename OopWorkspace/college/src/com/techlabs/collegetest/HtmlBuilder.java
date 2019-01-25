@@ -14,7 +14,9 @@ public class HtmlBuilder {
 		EngineeringCollege college = new EngineeringCollege();
 		college.addStudent(new Student(1, "Mira Road", "26/11/1996", BranchOption.COMPUTER));
 		college.addStudent(new Student(2, "Vasai", "22/05/1992", BranchOption.CIVIL));
+		college.addStudent(new Student(3, "Dahisar", "26/11/1995", BranchOption.INFORMATION_TECHNOLOGY));
 		college.addprofessor(new Professor(1, "Virar", "22/08/1885"));
+		college.addprofessor(new Professor(2, "vasai", "26/04/1882"));
 		printDetials(college);
 	}
 
