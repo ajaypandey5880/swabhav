@@ -12,19 +12,23 @@ public class Product {
 		this.cost = cost;
 		this.discount = discount;
 	}
+
 	public double calculateDiscountedPrice() {
-		cost = cost - (discount * cost/100);
-		return cost;
+		return cost - (discount * cost / 100);
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public double getCost() {
 		return cost;
 	}
+
 	public float getDiscount() {
 		return discount;
 	}

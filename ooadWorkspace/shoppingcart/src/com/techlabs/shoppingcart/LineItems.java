@@ -11,11 +11,13 @@ public class LineItems {
 		this.product = product;
 	}
 
-	public double calculateLineItemDiscountedPrice() {
-		return this.product.calculateDiscountedPrice() * quantity;
-	}
 	
 	public double calculateLineItemActualPrice() {
+		return this.product.getCost() * quantity;
+	}
+	
+	
+	public double calculateLineItemDiscountedPrice() {
 		return this.product.calculateDiscountedPrice() * quantity;
 	}
 
@@ -26,6 +28,11 @@ public class LineItems {
 	public int getQuantity() {
 		return quantity;
 	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
 
 	public Product getProduct() {
 		return product;
