@@ -3,20 +3,22 @@ package bookmark.test;
 import java.io.IOException;
 import java.util.*;
 
+import bookmark.BookMarkDisplay;
 import bookmark.Bookmark;
 import bookmark.service.BookmarkService;
 
 public class BookmarkConsole {
 
 	public static void main(String[] args) throws IOException {
-		Bookmark b = new Bookmark();
-		BookmarkService b1 = new BookmarkService();
+		Bookmark bookmark = new Bookmark();
+		BookmarkService bookmarkService = new BookmarkService();
+		BookMarkDisplay bookMarkDisplay = new BookMarkDisplay();
 		int choice;
 		final int ADD =0;
 		final int DISPLAY = 1;
+		final int EXIT = 2;
 		Scanner scanner = new Scanner(System.in);
-		// System.out.println("select the operation you want to perform add or
-		// display");
+		
 		do {
 		System.out.println("Enter 0 to add BookMarks\n 1 to display the Bookmarks\n2 to exit");
 		choice = scanner.nextInt();
@@ -27,18 +29,21 @@ public class BookmarkConsole {
 			System.out.println("enter the URL");
 			String url = scanner.nextLine();
 
-			b.setName(name);
-			b.setUrl(url);
+			bookmark.setName(name);
+			bookmark.setUrl(url);
 
-			b1.add(b.getUrl(), b.getName());
+			bookmarkService.add(bookmark.getUrl(), bookmark.getName());
 			break;
 		case DISPLAY:
-			b1.display();
+			bookMarkDisplay.display();
+			break;
+		case EXIT:
+			System.out.println("Thankyou for Using Boomark App");
 			break;
 		default:
 			System.out.println("enter valid options");
 		}
-		}while( choice != 3);
+		}while( choice != 2);
 		// String option = sc.nextLine();
 		// b.setOption(InputOption.valueOf(option));
 		// if (b.getOption().equals(InputOption.ADD)){
