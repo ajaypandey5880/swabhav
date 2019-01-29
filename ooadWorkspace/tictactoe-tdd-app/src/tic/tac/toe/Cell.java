@@ -8,8 +8,11 @@ public class Cell {
 	}
 
 	public void setMark(Mark mark) {
+		if (this.mark != Mark.EMPTY) {
+			throw new RuntimeException("This index is Already Marked");
+		}
 		this.mark = mark;
-		//System.out.println("mark setted");
+
 	}
 
 }

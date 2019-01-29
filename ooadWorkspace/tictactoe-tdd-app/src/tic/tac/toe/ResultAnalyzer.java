@@ -1,12 +1,14 @@
 package tic.tac.toe;
 
-public class ResultAnalyzer {
-	private Board board;
+public class ResultAnalyzer implements IBoard {
+	private IResultAnalyzer board;
 
-	public ResultAnalyzer(Board board) {
+	public ResultAnalyzer(IResultAnalyzer board) {
 		this.board = board;
 	}
 
+	
+	@Override
 	public boolean isHorizontal() {
 		for (int index = 0; index < board.getCell().length; index = index + 3) {
 			if (board.getCellMark(index) == Mark.CROSS && board.getCellMark(index + 1) == Mark.CROSS
@@ -21,6 +23,10 @@ public class ResultAnalyzer {
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see tic.tac.toe.IBoard#isVertical()
+	 */
+	@Override
 	public boolean isVertical() {
 		for (int index = 0; index < 3; index++) {
 			if (board.getCellMark(index) == Mark.CROSS && board.getCellMark(index + 3) == Mark.CROSS
@@ -35,6 +41,10 @@ public class ResultAnalyzer {
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see tic.tac.toe.IBoard#isDiagonal()
+	 */
+	@Override
 	public boolean isDiagonal() {
 		if (board.getCellMark(0) == Mark.CROSS && board.getCellMark(4) == Mark.CROSS
 				&& board.getCellMark(8) == Mark.CROSS
@@ -51,6 +61,10 @@ public class ResultAnalyzer {
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see tic.tac.toe.IBoard#isWon()
+	 */
+	@Override
 	public Result isWon() {
 		if (isHorizontal() || isVertical() || isDiagonal()) {
 			return Result.WON;
