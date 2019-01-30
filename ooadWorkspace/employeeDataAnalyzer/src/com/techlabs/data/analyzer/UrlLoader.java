@@ -8,9 +8,9 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 
 public class UrlLoader implements ILoader {
-	private String path ;
+	private String path;
 	ArrayList<String> list = new ArrayList<String>();
-	
+
 	public UrlLoader(String path) {
 		this.path = path;
 	}

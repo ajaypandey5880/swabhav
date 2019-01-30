@@ -46,4 +46,10 @@ public class DataAnalyzer {
 		}
 	}
 	
+	public String MaxSalariedEmployee(TreeSet<Employee> employee) {
+		TreeSet<Employee> employeelist = new TreeSet<Employee>(new MaxSalary());
+ 		employeelist.addAll(employee);
+ 		return employeelist.last().getEmployeeName()+""+employeelist.last().getSalary();
+	}
+	
 }

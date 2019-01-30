@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.TreeSet;
 
 public class Parser {
-	public Employee employee;
-	public TreeSet<Employee>  employees = new TreeSet<Employee>();
+	private Employee employee;
+	private TreeSet<Employee>  employees = new TreeSet<Employee>();
 
 	public TreeSet<Employee> parse(ILoader iLoader) throws IOException {
 		for (String line : iLoader.load()) {
@@ -23,4 +23,5 @@ public class Parser {
 		}
 		return employees;
 	}
+	
 }
