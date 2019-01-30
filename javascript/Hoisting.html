@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>Before Hoisting</h2>
+        <p id="demo"></p>
+
+        <h3>After Hoisting</h3>
+        <p id ="demo1"></p>
+
+        <script>
+            var x = 5;  // Initialize x
+
+            elem = document.getElementById("demo");     
+            elem.innerHTML = "x is " + x + " and y is " + y;  
+
+            var y = 7; 
+            elem = document.getElementById("demo1");       
+            elem.innerHTML = "x is " + x + " and y is " + y;  
+            
+        </script>
+
+    </body>
+</html> 
