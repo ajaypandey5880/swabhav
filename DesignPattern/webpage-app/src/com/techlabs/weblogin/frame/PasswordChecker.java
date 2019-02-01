@@ -4,10 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class PasswordChecker implements ActionListener {
 	private LoginFrame frame;
-	//private String password = frame.getPassowrd().getPassword();
+	private String password;
 
 	public PasswordChecker(LoginFrame loginFrame) {
 		this.frame = loginFrame;
@@ -15,13 +16,17 @@ public class PasswordChecker implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (frame.getText().getText().equals(frame.getPassowrd().getPassword())){
+		password = "";
+		for (int i = 0; i < frame.getPassowrd().getPassword().length; i++) {
+			this.password = this.password + frame.getPassowrd().getPassword()[i];
+		}
+		if (frame.getText().getText().equalsIgnoreCase(password)) {
 			Welcome welcome = new Welcome();
 			welcome.setVisible(true);
-			JLabel label = new JLabel("Welcome" + frame.getText());
+			JLabel label = new JLabel("Welcome  " + frame.getText().getText());
 			welcome.getContentPane().add(label);
-			System.out.println("hiii");
+		} else {
+			JOptionPane.showMessageDialog(frame, "Inavlid Id and Password");
 		}
 	}
-
 }

@@ -15,6 +15,13 @@ public class Game {
 		this.currentPlayer = player1;
 	}
 
+
+	@Override
+	public String toString() {
+		return currentPlayer.toString();
+	}
+
+
 	public Result play(int index) {
 
 		playertask(index, currentPlayer);

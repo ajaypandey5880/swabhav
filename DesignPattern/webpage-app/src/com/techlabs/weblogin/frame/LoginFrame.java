@@ -1,9 +1,6 @@
 package com.techlabs.weblogin.frame;
 
-import java.awt.Button;
 import java.awt.Container;
-import java.awt.FlowLayout;
-import java.awt.TextField;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;

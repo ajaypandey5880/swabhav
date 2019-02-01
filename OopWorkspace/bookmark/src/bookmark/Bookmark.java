@@ -1,7 +1,5 @@
 package bookmark;
 
-import java.io.*;
-
 import bookmark.test.InputOption;
 
 public class Bookmark {
