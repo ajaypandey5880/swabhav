@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <input type="Button" id="start" style ="margin-bottom:20px" value="Start Game" onclick="display()">
+    <input type="Button" id="start" style ="margin-bottom:20px" value="Refresh" onclick="window.location.reload()">
+    <div id = buttons>
+    </div>
+    <div >
+        <p id = "message"></p>
+    </div>
+    <script>
+        function display(){
+            document.getElementById("start").disabled= true;
+            var no = (Math.floor(Math.random() * 50));
+            var count = 0 ;
+            var id = "box";
+            var index
+            for (index = 1; index<=50 ; index ++){
+                var button = document.createElement("button");
+                button.id = index;
+                button.innerHTML = index;
+                button.addEventListener("click",selector)
+                button.style.background = "grey";
+                button.style.marginRight = "20px";
+                button.style.marginBottom= "20px";
+                button.style.height="20px";
+                button.style.height="20px";
+                buttons.appendChild(button);
+            }
+        function selector(event){
+            
+            if(count<5){
+                var selected = event.srcElement;
+                var index = event.srcElement.id;
+                if(index>no) {
+                        selected.style.backgroundColor='green';
+                        selected.disabled = true;
+                    }
+
+                    if(index<no) {
+                        selected.style.backgroundColor='red';
+                        selected.disabled = true;
+                    }
+                    if(index==no) {
+                        selected.style.backgroundColor='blue';
+                        disable();
+                    }
+                    console.log(no);
+                }
+            else{
+                disable();
+            }
+            count = count + 1;
+        }
+        function disable(){
+            var index ;
+            for(index = 1;index<=50;index++){
+                document.getElementById(index).disabled = true;
+            }
+            alert('game over');
+            var reset = document.createElement("button");
+            reset.value="Refresh Page";
+            reset.onClick="window.location.reload()";
+            reset.innerHTML="Reset"
+            reset.style.height="20px";
+            reset.style.height="20px";
+            message.appendChild(reset);
+        }
+        
+        }
+        
+    </script>
+</body>
+</html>

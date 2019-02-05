@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body id="mainbody">
+    <button id="buttonred" name="redbutton" value="#FA8072" >Red</button>
+    <button id="buttonblue" name="bluebutton" value="#5D9DF5" >Blue</button>
+
+    <script>
+        ( function(){
+        var red = document.getElementById("buttonred");
+        red.addEventListener("click",function(){
+            changeBgColor(red.value);
+        });
+        var blue = document.getElementById("buttonblue");
+        blue.addEventListener("click",function(){
+            changeBgColor(blue.value);
+        });
+        function changeBgColor(event){
+            if(event=="#FA8072"){
+                document.getElementById("mainbody").style.backgroundColor="#FA8072";
+            }
+            else{
+                document.getElementById("mainbody").style.backgroundColor="#5D9DF5";
+            }
+            
+        }
+        }
+        )();
+    </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Quetion Bank</title>
+    </head>
+    <body>
+        <div id="startmenu">
+            <input type="button" id="startButton" value="Start" onClick="onStart()">
+        </div>
+        <script>
+            var questions=[
+               {    
+                   "id": 1,
+                    "content":"Largest Continent on Planet",
+                    "option":["Africa","Asia","North America","South America"],
+                    "answer":"option[1]"
+               },
+               {
+                   "id": 2,
+                    "content":"Smallest Continent on Planet",
+                    "option":["Africa","Europe","Australia","South America"],
+                    "answer":"option[2]"
+                },
+                {                            
+                    "id":3,
+                    "content":"Largest river on Planet",
+                    "option":["Amazon","Ganga","Indus","Nile"],
+                    "answer":"option[3]"
+                },
+                {
+                    "id":4,
+                    "content":"Biggest country on Planet by Area",
+                    "option":["China","USA","Russia","India"],
+                    "answer":"option[2]"
+                },
+                {
+                    "id":5,
+                    "content":"Biggest country on Planet by polpulation",
+                    "option":["China","India","USA","Russia"],
+                    "answer":"option[0]"
+                },
+                {
+                    "id":6,
+                    "content":"Capital of India",
+                    "option":["Mumbai","Chennai","Kolkata","New Delhi"],
+                    "answer":"option[3]"
+                },    
+                {
+                    "id":7,
+                    "content":"Largest ocean on Planet",
+                    "option":["Pacific","Indian","Atlantic","Arctic"],
+                    "answer":"option[0]"
+                },
+                {
+                    "id":8,
+                    "content":"Highest Mountain on Planet",
+                    "option":["Mt. Kanchenjonga","Mt. Everest","Mt.GodwinAustin","Mt.CaperHorn"],
+                    "answer":"option[2]",
+                },
+                {
+                    "id":9,
+                    "content":"Largest dry Desert on Planet",
+                    "option":["Thar","Atacama","Great Australian desert","Sahara"],
+                    "answer":"option[3]"
+                },
+                {
+                    "id":10,
+                    "content":"Largest military expenditure by Country",
+                    "option":["USA","India","China","Russia"],
+                    "answer":"option[0]"
+                }
+            ];
+            
+            var mainWindow=document.querySelector("#startmenu");
+            var correctCount=0;
+           
+            function onStart(){
+                startTest();
+            }
+            var num=[];
+            var index=0;
+            var question=Math.floor(Math.random()*3);
+            function startTest(){
+                mainWindow.innerHTML="";
+                createView(questions[question]);
+            }
+            
+            function createView(question){
+                index++;
+                var labelID=document.createElement("Label");
+                var labelQuestion=document.createElement("Label");
+                var form=document.createElement("form");
+                form.setAttribute("id","form");
+            for(var i=0;i<question.option.length;i++){
+                var radio=document.createElement("input");
+                radio.autofocus=true;
+                var radioLabel=document.createElement("label");
+                radio.type="radio";
+                radio.name="option";
+                radio.addEventListener("click",check);
+                radio.setAttribute("id","option["+i+"]");
+                radio.setAttribute("value",question.answer); 
+                radioLabel.innerHTML=question.option[i];
+                
+                form.appendChild(radio);
+                form.appendChild(radioLabel);
+            }                 
+                var nextButton=document.createElement("button");
+                labelID.innerHTML=index+".";
+                labelQuestion.innerHTML=question.content;
+                labelQuestion.style.marginLeft=150;
+                nextButton.innerHTML="Next";
+                nextButton.addEventListener("click",next);
+                mainWindow.appendChild(labelID);
+                mainWindow.appendChild(labelQuestion);
+                mainWindow.appendChild(form);
+                mainWindow.appendChild(nextButton);
+            }
+            function check(event){
+                    if(event.srcElement.id==event.srcElement.value){
+                            correctCount++;
+                        }
+            }
+            function next(){
+                mainWindow.innerHTML="";                    
+                    if(index<5){
+                        createView(questions[question+index]);  
+                    }else{
+                        result();
+                    }
+            }
+            function result(){
+            }
+        
+        </script>
+    </body>
+</html>

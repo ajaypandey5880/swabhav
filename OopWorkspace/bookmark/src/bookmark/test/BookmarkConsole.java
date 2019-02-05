@@ -25,9 +25,9 @@ public class BookmarkConsole {
 		switch (choice){
 		case ADD:
 			System.out.println("enter the name");
-			String name = scanner.nextLine();
+			String name = scanner.next();
 			System.out.println("enter the URL");
-			String url = scanner.nextLine();
+			String url = scanner.next();
 
 			bookmark.setName(name);
 			bookmark.setUrl(url);

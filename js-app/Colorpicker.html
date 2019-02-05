@@ -1,0 +1,19 @@
+<html>
+    <body id = "main">
+        <select id = "change">
+            <option value = "">Select colour</option>
+            <option value = "#FA8072">Red</option>
+            <option value = "#5D9DF5">Blue</option>
+            <option value = "#60F36D">Green</option>
+            <option value = "#736868">Black</option>
+        </select>
+        <script>
+        (
+            change.onchange = function(){
+                var select = change.options[change.selectedIndex].value;
+                document.getElementById("main").style.background=select;
+            }
+        )();
+        </script>
+    </body>
+</html>

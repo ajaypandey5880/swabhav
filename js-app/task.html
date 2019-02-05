@@ -1,0 +1,29 @@
+<html>
+    <body>
+        <div>
+            <label>Enter The Name</label>
+            <input type="text" id="Name" placeholder="add Anything">
+            <input type="submit" name="Add" onclick="newItem()">
+            <span style ="color: red"id="alert"></span>
+        </div>
+        <p>
+            <ul id="list">
+            </ul>
+        </p>
+        <script>
+            function newItem(){
+                var input = document.getElementById("Name").value ;
+                var ul = document.getElementById("list");
+                var li = document.createElement("li");
+                if(input != ""){
+                li.appendChild(document.createTextNode(""+input));
+                ul.appendChild(li);
+                document.getElementById("Name").value="";
+                document.getElementById("alert").innerHTML="";
+            }else{
+                document.getElementById("alert").innerHTML="*please enter text";
+            }
+            }
+        </script>
+    </body>
+</html>
