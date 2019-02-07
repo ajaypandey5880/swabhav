@@ -37,7 +37,7 @@
                 data.push(car[i]);
             }
             var local = JSON.stringify(data);
-            localStorage["task"] = local;
+            localStorage["Task"] = local;
             if(count == 0){
                 for (var i = 0 ; i<data.length;i++){
                     display(data[i]);
@@ -64,7 +64,7 @@
         }
         function retrive(){
             var retrive ;
-               retrive = JSON.parse(localStorage.getItem("task"));
+               retrive = JSON.parse(localStorage.getItem("Task"));
             return retrive;
         }
         store();

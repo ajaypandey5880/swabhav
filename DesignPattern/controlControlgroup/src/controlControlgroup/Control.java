@@ -1,5 +1,7 @@
 package controlControlgroup;
 
+import controlControlgroup.test.ControlControlGroupTest;
+
 public class Control implements IControl {
 	private String tag;
 	private String type;
@@ -39,7 +41,8 @@ public class Control implements IControl {
 
 	@Override
 	public void displayDOM() {
-		System.out.println("<" + tag + ">< input type ="+this.type);
-		System.out.println("</" + tag + ">");
+		//System.out.println("<" +tag+" type ="+this.type);
+		//System.out.println("</" + tag + ">");
+		System.out.println(ControlControlGroupTest.compositeBuilder +"<"+tag+" type = "+this.type+"</"+tag+">" );
 	}
 }
