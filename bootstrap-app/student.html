@@ -20,7 +20,7 @@
         <div class="form-group">
             <label for="inputRollNo" class="col-sm-2 control-label">Enter Roll No</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" id="inputRollNO" placeholder="Enter Roll No">
+                <input type="number" class="form-control" id="inputRollNo" placeholder="Enter Roll No">
             </div>
         </div>
         <div class="form-group">
@@ -44,29 +44,29 @@
         <div class="form-group">
             <label for="inputDate" class="col-sm-2 control-label">Enter Date</label>
             <div class="col-sm-10">
-              <input type="date" class="form-control" id="inputName" placeholder="Enter Date">
+              <input type="date" class="form-control" id="inputDate" placeholder="Enter Date">
             </div>
         </div>
         <div class="form-group">
             <label>
-                <input type="radio" style="margin-left: 210px" name="optionsRadios" id="genderMale" value="option1" checked>
+                <input type="radio" style="margin-left: 210px" name="optionsRadios" id="gender" value="option1" checked>
                 MALE
             </label>
         </div>
         <div class="form-group">
             <label>
-                <input type="radio" style="margin-left: 210px" name="optionsRadios" id="genderFemale" value="option2">
+                <input type="radio" style="margin-left: 210px" name="optionsRadios" id="gender" value="option2">
                 FEMALE
             </label>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <input type="button" id="addButton" class="btn btn-default">Add</button>
+                <input type="button" id="addButton" class="btn btn-default" value="Add"></button>
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <input type="button" id="displayButton" class="btn btn-default">Display</button>
+                <input type="button" id="displayButton" class="btn btn-default" value="Display"></button>
             </div>
         </div>
     </form>
@@ -77,13 +77,31 @@
                 url: 'http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/',
                 type: 'get',
                 success: function (data) {
-                    
+                    getData(data);
+
                 },error:function(){
-                    $('#loading-image').hide();
+                    //$('#loading-image').hide();
                     $("#printData").html("Data Can't be fetched")
                 }
             })
         })
+        $("#addButton").click(function(){
+           $.post("http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/",
+             {
+                "rollNo": $("#inputRollNo").val(),
+                "name": $("#inputName").val(),
+                "age": $("#inputAge").val(),
+                "email": $("#inputEmail").val(),
+                "date": $("#inputDate").val(),                                
+                "isMale": $('#gender').prop('checked')
+            },
+            function(data,status){
+            alert("Data: " + data + "\nStatus: " + status);
+            });
+        });
+        function getData(data){
+            console.log(data);
+        }
     </script>
       
 </body>
