@@ -61,7 +61,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <input type="button" id="addButton" class="btn btn-default" value="Add"></button>
+                <button type="submit" id="addButton" class="btn btn-default" >Add</button>
             </div>
         </div>
         <div class="form-group">
@@ -70,38 +70,87 @@
             </div>
         </div>
     </form>
-    <div id="printData"></div>
+    <div id="printData">
+            <img id="loading-image" src="giphy.gif" alt="Loading..." />
+    </div>
     <script>
         $("#displayButton").on("click",function(){
+            $('#loading-image').show();
             $.ajax({
                 url: 'http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/',
                 type: 'get',
                 success: function (data) {
+                    $('#loading-image').hide();
                     getData(data);
 
                 },error:function(){
-                    //$('#loading-image').hide();
+                    $('#loading-image').hide();
                     $("#printData").html("Data Can't be fetched")
                 }
             })
         })
         $("#addButton").click(function(){
-           $.post("http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/",
-             {
-                "rollNo": $("#inputRollNo").val(),
-                "name": $("#inputName").val(),
-                "age": $("#inputAge").val(),
-                "email": $("#inputEmail").val(),
-                "date": $("#inputDate").val(),                                
-                "isMale": $('#gender').prop('checked')
-            },
-            function(data,status){
-            alert("Data: " + data + "\nStatus: " + status);
-            });
+            if(validator()){
+                $('#loading-image').show();
+                $.post("http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/",
+                {
+                    "rollNo": $("#inputRollNo").val(),
+                    "name": $("#inputName").val(),
+                    "age": $("#inputAge").val(),
+                    "email": $("#inputEmail").val(),
+                    "date": $("#inputDate").val(),                                
+                    "isMale": $('#gender').prop('checked')
+                },
+                function(data,status){
+                $('#loading-image').hide();
+                alert("Data: " + data + "\nStatus: " + status);
+                });
+            }else{
+                alert("Please fill every feild");
+            }
         });
-        function getData(data){
-            console.log(data);
+        function validator(){
+            if($("#inputRollNo").val() == "" || $("#inputName").val() == "" || $("#inputAge").val() == "" ||
+            $("#inputEmail").val() == "" || $("#inputDate").val() == ""){
+                return false;
+            }else{
+                return true;
+            }
         }
+
+        function getData(data){
+            var result = data;
+            var string;
+            string = "<table class='table table-striped'>";
+            string += "<th>Roll Number</th><th>Student name</th> <th>Age </th> <th>Date</th> <th>Email ID</th> <th>gender</th>";
+            for (var i = 0; i < result.length; i++) {
+                var rollNumber = result[i].rollNo;
+                var name = result[i].name;
+                var age = result[i].age;
+                var date = result[i].date;
+                var email = result[i].email;
+                var gender;
+                if(result[i].isMale){
+                    gender = "Male"
+                }else{
+                    gender = "Female"
+                }
+                string += '<tr>';
+                string += "<td>" + rollNumber + "</td>";
+                string += "<td>" + name + "</td>";
+                string += "<td>" + age + "</td>";
+                string += "<td>" + date + "</td>";
+                string += "<td>" + email + "</td>";
+                string += "<td>" + gender + "</td>";
+                string += "</tr>";
+            }
+            string += "</table>";
+            $("#printData").html(string);
+            console.log(string);
+        }
+        $(document).ready(function(){
+            $('#loading-image').hide();
+        });
     </script>
       
 </body>
