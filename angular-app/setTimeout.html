@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="student">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="angular.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+        <section ng-controller="studentController" ng-hide="para">
+                    <p> Name : {{student.name}}</p>
+                    <p> Address :{{student.addres}}</p>
+                    <p> CGPA :{{student.cgpa}}</p>
+                    <img ng-src="{{student.picture}}" />
+        </section>
+    <script>
+      angular.module("student", [])
+        .controller("studentController", function($scope,$timeout) {
+          $scope.para = true;
+          $timeout(function(){
+                $scope.para = false;
+                $scope.student = {
+              name: "gaurang",
+              addres: "thane",
+              cgpa: 5.88,
+              picture: "gaurang.jpg"
+            };
+            },3000);
+        });
+    </script>
+  </body>
+</html>

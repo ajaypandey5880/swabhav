@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="toggle">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="angular.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <section ng-controller = "Change">
+        <button ng-click="ChangeFunction()">Toogle</button>
+        <div>
+            <img ng-hide="changeVisibility"ng-src="{{spinner}}" />
+        </div>      
+    </section>
+    <script>
+        angular.module('toggle',[])
+        .controller('Change',function($scope){
+            $scope.changeVisibility = true;
+            $scope.spinner = "g1.gif";
+            $scope.ChangeFunction = function(){
+                if($scope.changeVisibility == false){
+                    $scope.changeVisibility = true;
+                    return;
+                }
+                if($scope.changeVisibility == true){
+                    $scope.changeVisibility = false;
+                    return;
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>
