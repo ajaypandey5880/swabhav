@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app='SwabhavTechLabs'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="angular.js"></script>
+</head>
+<body>
+    <section ng-controller='fisrtcontroller'>
+        <p>ID : <input type="text" ng-model="value"></p>
+        <section ng-if="mathsvc.EvenOdd('value')">
+            <section ng-style="{'background-color':green}"></section>
+            <h1>hii</h1>
+        </section> 
+    </section>
+    <script>
+        angular.module('SwabhavTechLabs',[])
+            .factory('mathsvc',['$log','$rootScope',function($log,$rootScope){
+                $log.info($rootScope);
+                $log.info("Inside the Service");
+                var service = {};
+                    service.EvenOdd = function(no){
+                        if(no % 2 == 0){
+                            return "true";
+                        }else{
+                            return "false";
+                        }
+                    }
+                    return service;
+                }
+            ])
+            .controller('fisrtcontroller',['$scope','mathsvc',function($scope,mathsvc){
+                $scope.value ;
+                mathsvc.EvenOdd($scope.value);
+                $scope.result = mathsvc.EvenOdd($scope.value);
+                console.log(mathsvc.EvenOdd($scope.value));
+
+            }])
+            .controller('secondcontroller',['$scope','mathsvc',function($scope,mathsvc){
+                console.log(mathsvc.EvenOdd)
+            }])
+    </script>
+</body>
+</html>
