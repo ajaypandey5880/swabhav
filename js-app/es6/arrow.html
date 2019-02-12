@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let processData = function(no,callback){
+            let r = Math.random()*no;
+            if(r>5){
+                callback(r*5);
+            }else{
+                callback(r);
+            }
+        }
+        processData(100,function(r){
+            console.log(r);
+        })
+        processData(200,(r)=> console.log(r));
+        console.log("FirstLine");
+        setTimeout(()=>{
+            console.log("After Three Second")
+        },3000)
+    </script>
+    <script>
+        function employee(name){
+            this.emp = name;
+            this.display1 = function(){
+                setTimeout(function(){
+                    console.log(this.emp+" After 3 Second");
+                },3000) 
+            }
+            this.display2 = function(){
+                setTimeout(()=>{
+                    console.log(this.emp+" After 4 second")
+                },4000)
+            }
+        }
+        let e1 = new employee("ajay");
+        let e2 = new employee("devang");
+        console.log(e1);
+        console.log(e2);
+        e1.display1();
+        e1.display2();
+    </script>
+</body>
+</html>

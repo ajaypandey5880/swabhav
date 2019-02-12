@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let dataService = function(){
+            let service = {};
+            service.cubeOfEven = function(no){
+                return new Promise(function(resolve,reject){
+                    if(no % 2 == 0){
+                        resolve(no*no*no);
+                    }else{
+                        reject("Error No Is Not Even")
+                    }
+                })
+            }
+            return service;
+        }();
+        dataService.cubeOfEven(8).then((r)=>{
+            console.log(r);
+                dataService.cubeOfEven(7).then((r)=>{
+                console.log(r);
+                    dataService.cubeOfEven(6).then((r)=>{
+                    console.log(r);
+                    
+                }).catch((r)=>{
+                    console.log(r);
+                })
+                
+            }).catch((r)=>{
+                console.log(r);
+            })
+            
+        }).catch((r)=>{
+            console.log(r);
+        })
+        console.log("end of script");
+    </script>
+</body>
+</html>
