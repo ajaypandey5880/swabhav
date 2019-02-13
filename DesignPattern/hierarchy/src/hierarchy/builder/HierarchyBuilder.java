@@ -2,26 +2,61 @@ package hierarchy.builder;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.TreeSet;
 
 public class HierarchyBuilder {
-	List<Employee> list = new ArrayList<Employee>();
-	
-	public List<Employee> heirarchy(TreeSet<Employee> employee) {
-		for(Employee employee2 : employee) {
-			if(employee2.getManagerID().equals("NULL")) {
-				list.add(employee2);
-				//employee.remove(employee2);
-			}
-		}
-		for(Employee employee2 : employee) {
-			if( !employee2.getManagerID().equals("NULL") && Integer.parseInt(employee2.getManagerID()) == (list.get(0).getEmployeeId())) {
-				list.add(employee2);
-			}
-		}
-		for(Employee employee2 : employee) {
-			
-		}
-		return list;
+	private Employee rootEmployee = null;
+	private List<Employee> reporteeList = new ArrayList<Employee>();
+	private List<Employee> mangerList = new ArrayList<Employee>();
+	private Set<Employee> empSet = new TreeSet<Employee>();
+
+	public HierarchyBuilder(Set<Employee> empSet) {
+		this.empSet = empSet;
+		findCEO();
+		getManger();
+		getRepotee();
 	}
+
+	public void findCEO() {
+		for (Employee emp : empSet) {
+			if (emp.getMangerId() == null) {
+				rootEmployee = emp;
+			} else {
+				reporteeList.add(emp);
+			}
+		}
+	}
+
+	public void getManger() {
+		for (Employee emp : reporteeList) {
+			if (rootEmployee.getEmpId().equals(emp.getMangerId())) {
+				rootEmployee.addRepotee(emp);
+				mangerList.add(emp);
+			}
+		}
+	}
+
+	public void getRepotee() {
+		for (Employee manger : mangerList) {
+			for (Employee employee : reporteeList) {
+				if (manger.getEmpId().equals(employee.getMangerId())) {
+					manger.addRepotee(employee);
+				}
+			}
+		}
+	}
+
+	public Employee getRootEmployee() {
+		return rootEmployee;
+	}
+
+	public List<Employee> getReporteeList() {
+		return reporteeList;
+	}
+
+	public List<Employee> getMangerList() {
+		return mangerList;
+	}
+
 }

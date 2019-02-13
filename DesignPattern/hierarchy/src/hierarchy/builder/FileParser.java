@@ -1,26 +1,30 @@
 package hierarchy.builder;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Set;
 import java.util.TreeSet;
 
 public class FileParser {
-	private Employee employee;
-	private TreeSet<Employee> employees = new TreeSet<Employee>() ;
+	private Set<Employee> empSet = new TreeSet<Employee>();
 
-	public TreeSet<Employee> parse(FileLoader loader) throws NumberFormatException, IOException {
-		for (String line : loader.readFile()) {
-			String[] employeeDetail = line.split(",");
-			employee = new Employee();
-			employee.setEmployeeId(Integer.parseInt(employeeDetail[0]));
-			employee.setEmployeeName(employeeDetail[1]);
-			employee.setEmployeeDesignaton(employeeDetail[2]);
-			employee.setManagerID((employeeDetail[3]));
-			employee.setJoiningDate((employeeDetail[4]));
-			employee.setSalary(Integer.parseInt(employeeDetail[5]));
-			employee.setCommision(employeeDetail[6]);
-			employee.setDepartmentNo(Integer.parseInt(employeeDetail[7]));
-			employees.add(employee);
+	public Set<Employee> parse(ArrayList<String> emp) throws Exception {
+		String split = ",";
+		
+		for (String line : emp) {
+			String string = line;
+			String[] linedata = string.split(split);
+			Integer id = Integer.parseInt(linedata[0]);
+			String name = linedata[1];
+			String designation = linedata[2];
+			Integer mangerId=linedata[3].equalsIgnoreCase("NULL")?null:Integer.parseInt(linedata[3]);
+		
+			Employee employee = new Employee(id, mangerId, name, designation);
+
+			empSet.add(employee);
 		}
-		return employees;
+		
+		return empSet;
+
 	}
 }

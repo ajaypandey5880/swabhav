@@ -27,6 +27,7 @@
         app.controller('taskList', ['$scope', function ($scope) {
             $scope.taskList = [];
             $scope.taskAdd = function () {
+                console.log($scope.taskInput);
                 if($scope.taskInput != "" && $scope.taskInput != undefined)
                     $scope.taskList.unshift($scope.taskInput);
                 $scope.taskInput = "";

@@ -1,94 +1,61 @@
 package hierarchy.builder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Employee implements Comparable<Employee>{
-	private int employeeId;
-	private String employeeName;
-	private String employeeDesignaton;
-	private String managerID;
-	private String joiningDate;
-	private double salary;
-	private String commision;
-	private int departmentNo;
-	private List<Employee> reportee;
+	private Integer empId;
+	private Integer mangerId;
+	private String name;
+	private String designation;
+	private static String compositeBuilder = " ";
+	private List<Employee> reportee = new ArrayList<Employee>();
 
-	public String getJoiningDate() {
-		return joiningDate;
+	public Employee(Integer empId, Integer mangerId, String name, String designation) {
+		this.empId = empId;
+		this.mangerId = mangerId;
+		this.name = name;
+		this.designation = designation;
+	}
+	public void display() {
+		System.out.println(compositeBuilder + name);
+		String len = compositeBuilder;
+		compositeBuilder=compositeBuilder +"   ";
+		for (Employee e : reportee) {
+			e.display();
+		}
+		compositeBuilder = len;
 	}
 
-	public void setJoiningDate(String joiningDate) {
-		this.joiningDate = joiningDate;
+	public Integer getEmpId() {
+		return empId;
 	}
 
-	public String getManagerID() {
-		return managerID;
+	public Integer getMangerId() {
+		return mangerId;
 	}
 
-	public void setManagerID(String managerID) {
-		this.managerID = managerID;
+
+	public String getDesignation() {
+		return designation;
 	}
 
-	public int getEmployeeId() {
-		return employeeId;
+	public void addRepotee(Employee employee) {
+		reportee.add(employee);
 	}
 
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
-	}
-
-	public String getEmployeeName() {
-		return employeeName;
-	}
-
-	public void setEmployeeName(String employeeName) {
-		this.employeeName = employeeName;
-	}
-
-	public String getEmployeeDesignaton() {
-		return employeeDesignaton;
-	}
-
-	public void setEmployeeDesignaton(String employeeDesignaton) {
-		this.employeeDesignaton = employeeDesignaton;
-	}
-
-	public double getSalary() {
-		return salary;
-	}
-
-	public void setSalary(double salary) {
-		this.salary = salary;
-	}
-
-	public String getCommision() {
-		return commision;
-	}
-
-	public void setCommision(String employeeDetail) {
-		this.commision = employeeDetail;
-	}
-
-	public int getDepartmentNo() {
-		return departmentNo;
-	}
-
-	public void setDepartmentNo(int departmentNo) {
-		this.departmentNo = departmentNo;
+	public String getName() {
+		return name;
 	}
 
 	public List<Employee> getReportee() {
 		return reportee;
 	}
 
-	public void setReportee(List<Employee> reportee) {
-		this.reportee = reportee;
-	}
-
 	@Override
 	public int compareTo(Employee o) {
-		
-		return this.employeeId - o.getEmployeeId();
+		return this.empId - o.empId;
 	}
+
 
 }

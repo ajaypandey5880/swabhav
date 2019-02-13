@@ -3,22 +3,35 @@ package hierarchy.builder;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class FileLoader  {
-	ArrayList<String> list = new ArrayList<String>();
-	
-	public ArrayList<String> readFile() throws IOException {
-		FileInputStream stream = new FileInputStream("D:\\programs\\datafile.txt");
-		BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
-		String string;
-		while((string=reader.readLine()) != null) {
-			list.add(string);
-		}
-		reader.close();
-		return list;
-		
+	private String fileName;
+	private ArrayList<String> list = new ArrayList<String>();
+
+	public FileLoader(String newFilename) {
+		this.fileName = newFilename;
 	}
+
+	public ArrayList<String> loadFile() throws IOException, FileNotFoundException {
+		BufferedReader br = new BufferedReader(new FileReader(fileName));
+		String line;
+		while ((line = br.readLine()) != null) {
+			list.add(line);
+		}
+		br.close();
+		return list;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public ArrayList<String> getList() {
+		return list;
+	}
+
 }

@@ -1,46 +1,72 @@
 <!DOCTYPE html>
-<html ng-app='SwabhavTechLabs'>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Custom Service</title>
     <script src="angular.js"></script>
-</head>
-<body>
-    <section ng-controller='fisrtcontroller'>
-        <p>ID : <input type="text" ng-model="value"></p>
-        <section ng-if="mathsvc.EvenOdd('value')">
-            <section ng-style="{'background-color':green}"></section>
-            <h1>hii</h1>
-        </section> 
-    </section>
-    <script>
-        angular.module('SwabhavTechLabs',[])
-            .factory('mathsvc',['$log','$rootScope',function($log,$rootScope){
-                $log.info($rootScope);
-                $log.info("Inside the Service");
-                var service = {};
-                    service.EvenOdd = function(no){
-                        if(no % 2 == 0){
-                            return "true";
-                        }else{
-                            return "false";
-                        }
-                    }
-                    return service;
-                }
-            ])
-            .controller('fisrtcontroller',['$scope','mathsvc',function($scope,mathsvc){
-                $scope.value ;
-                mathsvc.EvenOdd($scope.value);
-                $scope.result = mathsvc.EvenOdd($scope.value);
-                console.log(mathsvc.EvenOdd($scope.value));
+  </head>
 
-            }])
-            .controller('secondcontroller',['$scope','mathsvc',function($scope,mathsvc){
-                console.log(mathsvc.EvenOdd)
-            }])
+  <body ng-app="customService">
+    <section
+      ng-controller="firstController"
+      ng-style="{'background-color':result}"
+    >
+      <p>Enter Number</p>
+      <input type="number" ng-model="evenNum" ng-keypress="showEven($event)" />
+    </section>
+    <br />
+    <hr />
+    <section
+      ng-controller="secondController"
+      ng-style="{'background-color':result2}"
+    >
+      <p>Enter Number</p>
+      <input
+        type="number"
+        ng-model="oddNum"
+        ng-keypress="showOdd($event)"
+        ng-style="{'background-color':result2}"
+      />
+    </section>
+    <br />
+
+    <script>
+      angular.module("customService", [])
+        .factory("mathService", function($log, $rootScope) {
+          $log.info("Service created");
+          var obj = {};
+          obj.even = num => {
+            if (num % 2 == 0) {
+              return "Green";
+            }
+            return "Red";
+          };
+          obj.odd = num => {
+            if (num % 2 == 0) {
+              return "Green";
+            }
+            return "Red";
+          };
+          return obj;
+        })
+        .controller("firstController", ($rootScope, $scope, mathService) => {
+          $rootScope.showEven = event => {
+            console.log("hello");
+            if (event.keyCode == 13) {
+              $scope.result = mathService.even($scope.evenNum);
+            }
+          };
+        })
+        .controller("secondController", ($rootScope, $scope, mathService) => {
+          $rootScope.showOdd = event => {
+            console.log("hello");
+            if (event.keyCode == 13) {
+              $scope.result2 = mathService.odd($scope.oddNum);
+            }
+          };
+        });
     </script>
-</body>
+  </body>
 </html>
