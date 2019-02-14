@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization>
+  <employee designation="CEO">
+    <EmployeeName >Everyday Italian</EmployeeName>
+    <EmployeeID>Giada De Laurentiis</EmployeeID>
+    <reportee>
+        <employee designation="Manager">
+        <EmployeeName >Harry Potter</EmployeeName>
+        <EmployeeID>J K. Rowling</EmployeeID>
+        <reportee>
+            <employee designation="salesman">
+            <EmployeeName >Harry Potter</EmployeeName>
+            <EmployeeID>J K. Rowling</EmployeeID>
+            </employee>
+        </reportee>
+        </employee>
+        <employee designation="Manager">
+        <EmployeeName >Harry Potter</EmployeeName>
+        <EmployeeID>J K. Rowling</EmployeeID>
+        </employee>
+        <employee designation="Manager">
+        <EmployeeName >Harry Potter</EmployeeName>
+        <EmployeeID>J K. Rowling</EmployeeID>
+        </employee>
+    </reportee>
+  </employee>
+</Organization>

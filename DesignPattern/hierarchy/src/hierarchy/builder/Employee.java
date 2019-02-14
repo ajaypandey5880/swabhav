@@ -8,7 +8,7 @@ public class Employee implements Comparable<Employee>{
 	private Integer mangerId;
 	private String name;
 	private String designation;
-	private static String compositeBuilder = " ";
+	private StringBuffer data = new StringBuffer();
 	private List<Employee> reportee = new ArrayList<Employee>();
 
 	public Employee(Integer empId, Integer mangerId, String name, String designation) {
@@ -17,14 +17,16 @@ public class Employee implements Comparable<Employee>{
 		this.name = name;
 		this.designation = designation;
 	}
-	public void display() {
-		System.out.println(compositeBuilder + name);
-		String len = compositeBuilder;
-		compositeBuilder=compositeBuilder +"   ";
+	public StringBuffer display() {
+		data.append(name);
+		data.append("\n");
 		for (Employee e : reportee) {
-			e.display();
+			data.append("\t");
+			data.append(" "+e.display());
+			//data.append("\t");
 		}
-		compositeBuilder = len;
+			
+		return data;
 	}
 
 	public Integer getEmpId() {

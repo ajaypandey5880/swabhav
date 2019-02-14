@@ -1,8 +1,6 @@
 package hierarchy.builder.test;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 import hierarchy.builder.Employee;
@@ -19,9 +17,8 @@ public class HierarchyBuilderTest {
 		FileParser employeeParser=new FileParser();
 		Set<Employee> empSet=employeeParser.parse(list);
 		
-		HierarchyBuilder employeeHirarchy=new HierarchyBuilder(empSet);
-		Employee ceo=employeeHirarchy.getRootEmployee();
-		ceo.display();
-		
+		HierarchyBuilder heirarchyBuilder=new HierarchyBuilder(empSet);
+		Employee root=heirarchyBuilder.getCeo();
+		System.out.println(root.display());
 	}
 }
