@@ -5,13 +5,13 @@
 </head>
 <body  ng-controller="bindcontroller">
     <div>  
-                Enter Text    : <input type="text" ng-model="message"/><br><br>
-                Font Size        : <input type="number" ng-model="size"/><br><br>
-                Background Color : 
-                <select ng-model="bgColor" ng-options="color for color in colorsList"></select><br><br>
-                Text Color       : 
-                <select ng-model="textColor" ng-options="text for text in colorsList"></select><br>
-                <br><br>
+        Enter Text    : <input type="text" ng-model="message"/><br><br>
+        Font Size        : <input type="number" ng-model="size"/><br><br>
+        Background Color : 
+        <select ng-model="bgColor" ng-options="color for color in colorsList"></select><br><br>
+        Text Color       : 
+        <select ng-model="textColor" ng-options="text for text in colorsList"></select><br>
+        <br><br>
     </div>
     <textarea ng-style="{'background-color':bgColor , 'color':textColor, 'font-size':size+'px'}">{{message}}</textarea>
 

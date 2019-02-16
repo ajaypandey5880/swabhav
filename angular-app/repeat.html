@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app='SwavbhavTechlabs'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="angular.js"></script>
+</head>
+<body>
+    <section ng-controller="repeatController">
+        <p ng-repeat="i in array track by $index">{{i}}</p>
+    </section>
+    <script>
+        var app = angular.module('SwavbhavTechlabs',[]);
+        app.controller('repeatController',['$scope',function($scope){
+            $scope.array = [15,15,15,15];
+        }])
+    </script>
+</body>
+</html>
