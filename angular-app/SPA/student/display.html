@@ -11,7 +11,8 @@
                     <th>Email Id</th>
                     <th>Gender</th>
                     <th>Date</th>
-                    <th>Edit date</th>
+                    <th ng-hide="!isValidUser">Delete data</th>
+                    <th ng-hide="!isValidUser">Edit date</th>
                 </tr>
                 <tbody ng-repeat="i in StudentDetailList" >
                     <tr>
@@ -22,7 +23,8 @@
                         <td ng-if="i.isMale == true">Male</td>
                         <td ng-if="i.isMale == false">Female</td>
                         <td>{{i.date|date:"short"}}</td>
-                        <td><a href="#/edit/{{i.id}}" class="btn btn-default">EDIT</a></td>
+                        <td ng-controller="deletecontroller" ng-hide="!isValidUser"><a href="#/display" ng-click="deleteStudentData(i.id)" class="btn btn-danger" >DELETE</a></td>
+                        <td ng-hide="!isValidUser"><a href="#/edit/{{i.id}}" class="btn btn-primary">EDIT</a></td>
                     </tr>
                 </tbody>
             </table>
