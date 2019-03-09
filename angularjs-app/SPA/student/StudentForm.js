@@ -222,6 +222,11 @@ var app = angular.module('SwabhavTechlabs',['ngRoute']);
             }
         }])    
 
+        app.controller('footercontroller',['$scope',function($scope){
+            $scope.company = "swabhav",
+            $scope.name = "ajay",
+        }])
+
         app.directive('pageHeader',function(){
             return{
                 templateUrl : 'header.html'

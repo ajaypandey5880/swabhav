@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
 })
 export class WelcomeComponent {
   message = "HII this is welcome component message";
-  no = 11212.236478
+  no = 22/7;
 }

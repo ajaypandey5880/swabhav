@@ -24,7 +24,7 @@ public class TicTacToeGui {
 
 	public static void init() {
 		Player player1 = new Player("ajay");
-		Player player2 = new Player("anup");
+		Player player2 = new Player("shreyas");
 		Board board = new Board();
 		ResultAnalyzer analyzer = new ResultAnalyzer(board);
 		Game game = new Game(player1, player2, board, analyzer);

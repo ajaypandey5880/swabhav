@@ -1,0 +1,22 @@
+<h2>Binding Expression</h2>
+<div class="container">
+  <!-- <p>{{student|json}}</p> -->
+  <p>{{student['name']}}</p>
+  <p>{{student['Role']}}</p>
+  <p>{{student['company']}}</p>
+  <p [style.background-color]="bgcolor">{{student['cgpa']}}</p>
+</div>
+<h2>Event Binding</h2>
+<div class="container">
+  <input type="button" value="Click_Me" (click)='handleClick()'>
+  <ul *ngFor="let course of courses">
+    <li>{{course}}</li>
+  </ul>
+</div>
+<h2>Property Binding</h2>
+<div class="container">
+  <p [innerHtml]='message'></p>
+  <p [innerHtml]="'message'"></p>
+  <img [src]="imgUrl" [width]="width" [height]="height"/>
+</div>
+
