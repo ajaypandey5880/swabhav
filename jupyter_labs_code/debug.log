@@ -1,0 +1,2 @@
+[1226/120232.009:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1226/162646.800:ERROR:file_io.cc(135)] WriteFile: The pipe is being closed. (0xE8)
